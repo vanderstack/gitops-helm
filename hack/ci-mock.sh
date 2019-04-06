@@ -22,10 +22,10 @@ done
 shift $((OPTIND-1))
 
 if [ -z "${version}" ]; then
-    image="${project}/${repository}:${branch}-${commit}"
+    image="gcr.io/${project}/${repository}:${branch}-${commit}"
     version="0.4.0"
 else
-    image="${project}/${repository}:${version}"
+    image="gcr.io/${project}/${repository}:${version}"
 fi
 
 echo ">>>> Building image ${image} <<<<"
