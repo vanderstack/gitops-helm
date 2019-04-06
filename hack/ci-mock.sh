@@ -30,6 +30,7 @@ fi
 
 echo ">>>> Building image ${image} <<<<"
 
+echo "docker build --build-arg GITCOMMIT=${commit} --build-arg VERSION=${version} -t ${image} -f Dockerfile.ci ."
 docker build --build-arg GITCOMMIT=${commit} --build-arg VERSION=${version} -t ${image} -f Dockerfile.ci .
 
 gcloud docker -- push gcr.io/${image}
