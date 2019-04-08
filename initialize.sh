@@ -96,3 +96,9 @@ kubectl get secret -n adm sealed-secrets-key -o yaml --export | cat
 # Review Helm Release History
 # helm history {release name}
 # helm history podinfo-dev
+
+# List all Docker Images
+# gcloud container images list
+
+# List all tags for a Docker Image
+# gcloud container images list-tags gcr.io/vanderstack-1531176539095/podinfo
