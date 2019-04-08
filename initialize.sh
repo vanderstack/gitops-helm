@@ -13,9 +13,9 @@ helm init --skip-refresh --upgrade --service-account tiller
 
 # Install Flux Client (unsure if done by helm?)
 # wget https://github.com/weaveworks/flux/releases/download/1.11.1/fluxctl_linux_amd64
-# sudo install -m 755 fluxctl-linux-amd64 /usr/local/bin/fluxctl
+# sudo install -m 755 fluxctl_linux_amd64 /usr/local/bin/fluxctl
 # Set flux namespace
-# export FLUX_FORWARD_NAMESPACE=weave
+# export FLUX_FORWARD_NAMESPACE=flux
 # export FLUX_URL=http://127.0.0.1:3030/api/flux
 
 # Install Flux Server
@@ -70,7 +70,7 @@ kubectl get secret -n adm sealed-secrets-key -o yaml --export | cat
 # fluxctl sync
 
 # Review Flux Logs
-# kubectl -n default logs deployment/flux -f
+# kubectl -n flux logs deployment/flux -f
 
 # View Workloads
 # fluxctl list-workloads --all-namespaces
