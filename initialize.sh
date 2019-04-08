@@ -85,13 +85,13 @@ kubectl get secret -n adm sealed-secrets-key -o yaml --export | cat
 # fluxctl list-workloads --all-namespaces
 
 # Inspect Container Version
-# fluxctl list-images --workload {workload name}
+# fluxctl list-images --controller={workload name}
 
 # Automate Workload
-# fluxctl automate --workload={workload name}
+# fluxctl automate --controller={workload name}
 
 # Turn off Automation
-# fluxctl automate --workload={workload name}
+# fluxctl automate --controller={workload name}
 
 # Review Helm Release History
 # helm history {release name}
@@ -102,3 +102,17 @@ kubectl get secret -n adm sealed-secrets-key -o yaml --export | cat
 
 # List all tags for a Docker Image
 # gcloud container images list-tags gcr.io/vanderstack-1531176539095/podinfo
+
+# Simulate CI Pipeline
+## Verify Helm Revision
+# helm history podinfo-dev
+## Verify Flux Image
+# fluxctl list-images --controller=dev:deployment/podinfo-dev
+## Invoke Fake CI
+# ./ci-mock.sh -r "podinfo" -b dev
+## Force Flux Synchronization (default schedule 5 minutes)
+# fluxctl sync
+## Observe Updated Helm Revision
+# helm history podinfo-dev
+## Verify Updated Flux Image
+# fluxctl list-images --controller=dev:deployment/podinfo-dev
