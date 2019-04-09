@@ -14,7 +14,7 @@ spec:
     path: charts/podinfo
     ref: master
   values:
-    image: gcr.io/vanderstack-1531176539095/podinfo:dev-ahp3uusz
+    image: gcr.io/vanderstack-1531176539095/podinfo:dev-c7mjjsf9
     replicaCount: 1
     hpa:
       enabled: false
