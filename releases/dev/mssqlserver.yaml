@@ -1,0 +1,17 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: mssql-linux-dev
+  namespace: dev
+  annotations:
+    flux.weave.works/automated: "true"
+spec:
+  releaseName: mssql-linux-dev
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: mssql-linx
+    version: 0.7.0
+  values:
+    acceptEula.value: Y
+    sapassword: "not a secret"
