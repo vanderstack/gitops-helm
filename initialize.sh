@@ -76,6 +76,8 @@ kubectl get secret -n adm sealed-secrets-key -o yaml --export | cat
 # kubectl exec -it {pod name} -- /bin/sh
 
 # Force Flux Synchronization (default 5 minute wait)
+# kubectl -n flux port-forward deployment/flux-helm-operator 3030:3030 & curl -XPOST http://localhost:3030/api/v1/sync-git
+# OR
 # fluxctl sync
 
 # Review Flux Logs
